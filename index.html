@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="jquery-3.7.0.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="input" placeholder="Press enter to add tasks">
+        <ul></ul>
+    </div>
+    <script>
+        $(document).ready(function () {
+            // $("#input").on("keyup" ,function (e) {
+            //     if (e.keyCode == 13 && $("#input").val() != "") {
+            //         var input = $(this).val();
+            //     $('ul').append('<li>' + input + ' <i class="fas fa-check"> </i> </li>');
+            //     }
+
+            // });
+
+            $("#input").change(function () {
+                var input = $(this).val();
+                $('ul').append('<li>' + input + ' <i class="fas fa-check"> </i> <i class="fas fa-trash"> </i> </li>');
+                $(this).val();
+            })
+            $('ul').on('click','.fa-trash', function(){
+                $(this).parent('li').fadeOut(200);
+            });
+            $('ul').on('click','.fa-check', function(){
+                $(this).parent('li').toggleClass('checked');
+            });
+        });
+    </script>
+    <!-- <script src="jquery-3.7.0.min.js"></script> -->
+</body>
+
+</html>
